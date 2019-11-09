@@ -2,7 +2,7 @@
   "name": "slow-twitter",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/isheets/capstone/tree/master/slow-twitter",
+  "homepage": "https://isheets.github.io/easy-come-easy-go/",
   "dependencies": {
     "babel-eslint": "^10.0.3",
     "eslint-config-react-app": "^5.0.2",
