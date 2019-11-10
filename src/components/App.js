@@ -4,9 +4,11 @@ import {
   updateAuthentication,
   updateToken,
   updateUser,
-  logoutAndReset
+  logoutAndReset,
+  hideInfo
 } from "./../actions";
 import { useSelector, useDispatch } from "react-redux";
+import Modal from 'react-modal';
 
 import TweetCard from "./TweetCard/TweetCard";
 import TweetNav from "./TweetNav";
@@ -20,6 +22,22 @@ import { CSSTransition } from 'react-transition-group';
 import clickFile from './../sound/click.mp3';
 import printFile from './../sound/print.mp3';
 import successFile from './../sound/success.mp3';
+import Toolbar from "./Toolbar";
+import Info from "./Info";
+
+const customStyles = {
+  content: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
+  }
+};
+
+Modal.setAppElement('#root')
 
 let clickSound = new Audio(clickFile);
 let printSound = new Audio(printFile);
@@ -62,11 +80,13 @@ const logout = () => {
   dispatch(logoutAndReset());
 }
 
-
+let playSound = true;
 const App = () => {
   //get current state
   const user = useSelector(state => state.user);
   const game = useSelector(state => state.game);
+  let infoState = useSelector(state => state.ui.showInfo);
+  playSound = useSelector(state => state.ui.playSound);
 
   let animateOptions = useSelector(state => state.ui.optionsIn);
 
@@ -176,6 +196,16 @@ const App = () => {
             </div>
           </CSSTransition>
         </div>
+        <Toolbar />
+        <Modal
+          isOpen={infoState}
+          onRequestClose={() => dispatch(hideInfo())}
+          style={customStyles}
+          contentLabel="About the site"
+          className="info-content"
+        >
+          <Info/>
+        </Modal>
       </div>
     );
 
@@ -205,6 +235,7 @@ const App = () => {
             <div class="noTrespassingBarLineG"></div>
           </div>
         </div>
+        <Toolbar />
       </div>
     );
 
@@ -215,27 +246,27 @@ const App = () => {
     content = (
       <div className="page-wrapper">
         <CSSTransition
-            in={true}
-            classNames={'fade-slow'}
-            timeout={1000}
-            appear={true}
-          >
-        <div className="top-bar">
-          <div className="title">
-            <h1>SLOW TWITTER</h1>
+          in={true}
+          classNames={'fade-slow'}
+          timeout={1000}
+          appear={true}
+        >
+          <div className="top-bar">
+            <div className="title">
+              <h1>SLOW TWITTER</h1>
+            </div>
+            <div className="user-info">
+              <TwitterLogin
+                loginUrl="https://slow-twitter.appspot.com/api/v1/auth/twitter"
+                onFailure={onFailedAuth}
+                onSuccess={onSuccessAuth}
+                requestTokenUrl="https://slow-twitter.appspot.com/api/v1/auth/twitter/reverse"
+                className="twitter-login-button small-text"
+                text="SIGN IN TO TWITTER"
+                showIcon={false}
+              />
+            </div>
           </div>
-          <div className="user-info">
-            <TwitterLogin
-              loginUrl="https://slow-twitter.appspot.com/api/v1/auth/twitter"
-              onFailure={onFailedAuth}
-              onSuccess={onSuccessAuth}
-              requestTokenUrl="https://slow-twitter.appspot.com/api/v1/auth/twitter/reverse"
-              className="twitter-login-button small-text"
-              text="SIGN IN TO TWITTER"
-              showIcon={false}
-            />
-          </div>
-        </div>
         </CSSTransition>
         <div className={"main-flex rel"}>
           <CSSTransition
@@ -255,6 +286,7 @@ const App = () => {
             </div>
           </CSSTransition>
         </div>
+        <Toolbar />
       </div>
 
     );

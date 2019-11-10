@@ -85,6 +85,18 @@ export const optionsOut = () => ({
   type: 'OPTIONS_IN_FALSE'
 })
 
-export const toggleCompleteIn = () => ({
-  type: 'TOGGLE_COMPLETE_IN'
+export const playSound = () => ({
+  type: 'PLAY_SOUND'
+})
+
+export const muteSound = () => ({
+  type: 'MUTE_SOUND'
+})
+
+export const showInfo = () => ({
+  type: 'SHOW_INFO'
+})
+
+export const hideInfo = () => ({
+  type: 'HIDE_INFO'
 })

@@ -176,6 +176,50 @@ body {
   margin: auto;
 }
 
+.bottom-toolbar {
+  position: absolute;
+  right: 5%;
+  bottom: 2%;
+}
+
+.toolbar-image {
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  margin: 5px;
+}
+
+.info-content {
+  background-image: url('./img/paper-bg_1.png');
+  background-repeat: repeat;
+  box-shadow: var(--shadow);
+  border-radius: 3px;
+  width: 60%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-content:focus {
+  outline: none;
+}
+
+.info-title {
+  margin-bottom: 20px;
+}
+
+.info-p {
+  line-height: 120%;
+  margin-bottom: 10px;
+}
+
+.info-close-button {
+  margin-top: 10px;
+  align-self: center;
+}
+
+
 .content-wrapper {
   padding: 2%;
 }
