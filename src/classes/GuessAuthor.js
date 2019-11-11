@@ -5,6 +5,7 @@ import badFile from './../sound/bad.mp3'
 import goodFile from './../sound/type.mp3';
 import successFile from './../sound/success.mp3';
 import failFile from './../sound/fail.mp3';
+import { strikeIn } from '../actions';
 
 let badSound = new Audio(badFile);
 let goodSound = new Audio(goodFile);
@@ -113,6 +114,7 @@ export default class GuessAuthor {
         }
         else {
             //THIS IS WHERE STRIKE ANIMATION FIRING CODE SHOULD GO
+            store.dispatch(strikeIn());
             this.parent.updateGame(this);
         }
     }

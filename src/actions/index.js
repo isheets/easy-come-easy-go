@@ -100,3 +100,11 @@ export const showInfo = () => ({
 export const hideInfo = () => ({
   type: 'HIDE_INFO'
 })
+
+export const strikeIn = () => ({
+  type: 'STRIKE_START'
+})
+
+export const strikeOut = () => ({
+  type: 'STRIKE_STOP'
+})

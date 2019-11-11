@@ -2,7 +2,8 @@ const initialUI = {
     tweetIn: true,
     optionsIn: false,
     showInfo: false,
-    playSound: true
+    playSound: true,
+    strikeBounce: false
 }
 
 const ui = (state = initialUI, action) => {
@@ -50,6 +51,16 @@ const ui = (state = initialUI, action) => {
             return {
                 ...state,
                 playSound: false
+            }
+        case 'STRIKE_START':
+            return {
+                ...state,
+                strikeBounce: true
+            }
+        case 'STRIKE_STOP':
+            return {
+                ...state,
+                strikeBounce: false
             }
         default:
             return state

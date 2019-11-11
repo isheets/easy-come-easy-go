@@ -496,6 +496,7 @@ a:hover {
   margin-top: 20px;
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .strike {
@@ -718,6 +719,29 @@ button:active, .twitter-login-button:active {
 
 .slide-up-slow-exit-done {
   visibility: hidden;
+}
+
+/* strike bounce animation */
+.strike-enter, .strike-appear {
+  transform: scale(1);
+  transform-origin: center;
+
+}
+.strike-enter-active, .strike-appear-active {
+  transform: scale(1.3);
+  transition: transform 300ms ease-in-out;
+  transform-origin: center;
+}
+
+.scale-exit {
+  transform: scale(1.3);
+  transform-origin: center;
+}
+
+.scale-exit-active {
+  transform: scale(1);
+  transition: transform 400ms ease-in-out;
+  transform-origin: center;
 }
 
 /* css loading animation */
