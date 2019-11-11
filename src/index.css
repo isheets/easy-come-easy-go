@@ -410,7 +410,7 @@ a:hover {
 .word-wrapper {
   background-image: url('./img/paper-bg_1.png');
   background-repeat: repeat;
-  padding: 3px;
+  
   margin-bottom: 10px;
   width: min-content;
   word-wrap: none;
@@ -427,6 +427,7 @@ a:hover {
   width: min-content;
   cursor: move;
   border-radius: 3px;
+  padding: 5px;
 }
 
 .author-drag {
