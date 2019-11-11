@@ -1,10 +1,6 @@
 import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
-import Typing from 'react-typing-animation';
-import TweetProfilePic from "./../TweetProfilePic";
 import AuthorBlank from "./AuthorBlank";
-
-import Typist from 'react-typist';
 
 
 const TweetText = props => {
@@ -76,15 +72,6 @@ const TweetText = props => {
 			header = <h2 className="section-title">Guess the Author:</h2>
 			textToRender = curTweet.text;
 			urlsToRender = null;
-			// if (curTweet.urls !== null) {
-			// 	for (let i = 0; i < curTweet.urls.length; i++) {
-			// 		urlsToRender.push(
-			// 			<a target="_blank" href={curTweet.urls[i].expanded_url} rel="noopener noreferrer" key={i}>
-			// 				&#x2197; {curTweet.urls[i].display_url}
-			// 			</a>
-			// 		);
-			// 	}
-			// }
 		}
 		else if (game.type === "Complete" || game.type === 'NoTweets') {
 			textToRender = curTweet.text;
@@ -106,7 +93,7 @@ const TweetText = props => {
 
 		return (
 			<Fragment>
-				{game.type === 'FillBlank' || game.type === 'GuessAuthor' && quote !== true ?
+				{(game.type === 'FillBlank' || game.type === 'GuessAuthor') && quote !== true ?
 					<Fragment>
 						{header}
 						<h4 className="bold">Recieved at {tweetDate.toLocaleTimeString('en-US')} {tweetDate.toLocaleDateString('en-US')}</h4>

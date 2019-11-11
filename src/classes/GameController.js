@@ -4,7 +4,6 @@ import store from '../index';
 import {
   updateParsedTweets,
   updateCurGame,
-  updateParsedFriends,
   setDataAndInitGame,
   tweetOut,
   optionsOut

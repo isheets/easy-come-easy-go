@@ -36,8 +36,8 @@ const Toolbar = () => {
 
     return (
         <div className='bottom-toolbar'>
-            <img src={soundStateImage} className='sound-image toolbar-image' onClick={() => toggleSound()}></img>
-            <img src={infoImage} className='info-image toolbar-image' onClick={() => {
+            <img alt="Clickable icon to mute sound" src={soundStateImage} className='sound-image toolbar-image' onClick={() => toggleSound()}></img>
+            <img alt="Clickable icon to show information about this application" src={infoImage} className='info-image toolbar-image' onClick={() => {
                     if(soundState === true) {
                         clickSound.play();
                     }

@@ -1,6 +1,5 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { useDrop } from "react-dnd";
-import { useSelector } from "react-redux";
 
 const AuthorBlank = () => {
     console.log('rendering blank');

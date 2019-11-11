@@ -12,10 +12,6 @@ import { toast } from 'react-toastify';
 import { loadState, saveState } from "./local-storage/localStorage";
 import throttle from "lodash.throttle";
 
-import GameController from './classes/GameController';
-
-let gameController = new GameController();
-
 let persistedState = loadState();
 console.log(persistedState);
 let store;

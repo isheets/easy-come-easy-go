@@ -1,7 +1,7 @@
 import React from 'react'
 import GameController from './../classes/GameController';
 import { useDispatch, useSelector } from 'react-redux';
-import { tweetOut, optionsOut, optionsIn, tweetIn } from '../actions';
+import { tweetOut, optionsOut, tweetIn } from '../actions';
 
 import clickFile from './../sound/click.mp3';
 

@@ -105,8 +105,6 @@ const App = () => {
     animationDur = 200;
   }
 
-  let welcome = false;
-
   let playPrintSound = () => {
     if (playSound) {
       printSound.play();
@@ -182,7 +180,7 @@ const App = () => {
             <h1>EASY COME, EASY GO</h1>
           </div>
           <div className="user-info">
-            <img src={user.userDetails.img} alt='your profile picture' className='user-pic'></img>
+            <img src={user.userDetails.img} alt='your profile avatar' className='user-pic'></img>
             <h3 className='user-name'>{user.userDetails.name}</h3>
             <button className="small-text log-out" onClick={() => logout()}>LOG OUT</button>
           </div>
@@ -233,7 +231,7 @@ const App = () => {
             <h1>EASY COME, EASY GO</h1>
           </div>
           <div className="user-info">
-            <img src={user.userDetails.img} alt='your profile picture' className='user-pic'></img>
+            <img src={user.userDetails.img} alt='your profile avatar' className='user-pic'></img>
             <h3 className='user-name'>{user.userDetails.name}</h3>
             <button className="small-text log-out" onClick={() => logout()}>LOG OUT</button>
           </div>

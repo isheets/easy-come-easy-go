@@ -407,7 +407,7 @@ export default class FillBlank {
 		let curWordIdx = 0;
 
 		let startIdx;
-		if (parts[0] == '') {
+		if (parts[0] === '') {
 			startIdx = 1;
 		}
 		else {

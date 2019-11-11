@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
 import { useDrag } from "react-dnd";
-import TweetProfilePic from './TweetCard/TweetProfilePic'
 
 const DragAuthor = props => {
     let authorGame = useSelector(state => state.game.curGame);
@@ -14,7 +13,7 @@ const DragAuthor = props => {
 
     let content = null;
 
-    const [{ isDragging, isOver, dragCoords }, drag] = useDrag({
+    const [{ isDragging }, drag] = useDrag({
         item: { author: { name: name, url: url, handle: handle, time: time }, correct: correct, type: "author" },
         //called after word is dropped
         end: (item, monitor) => {
