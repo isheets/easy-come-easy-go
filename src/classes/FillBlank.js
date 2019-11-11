@@ -261,9 +261,16 @@ export default class FillBlank {
 		//get the text
 		let text = this.curTweet.text;
 		//construct regex to split string into all words
-		let allWordExp =
-			"(?<!@)(?<=\\s|^|\\b)(?:[-’'%$#&\\/]\\b|\\b[-’'%$#&\\/]|[A-Za-z0-9]|\\([A-Za-z0-9]+\\))+(?=\\s|$|\\b)";
-		let allWordReg = new RegExp(allWordExp, "g");
+		let allWordReg;
+		try { //try positive lookahead 
+			let allWordExp =
+				"(?<!@)(?<=\\s|^|\\b)(?:[-’'%$#&\\/]\\b|\\b[-’'%$#&\\/]|[A-Za-z0-9]|\\([A-Za-z0-9]+\\))+(?=\\s|$|\\b)";
+			allWordReg = new RegExp(allWordExp, "g");
+		}
+		catch { //revert to less robust exp if there's an error
+			let allWordExp = "([-’'%$#&\/]\\b|\\b[-’'%$#&\/]|[-A-Za-z0-9]|([A-Za-z0-9]+))*"
+			allWordReg = new RegExp(allWordExp, "g");
+		}
 
 
 		//use regex to create array of all words in tweet
@@ -515,22 +522,22 @@ var normalizeCap = (modelWord, normWord) => {
 }
 
 var shuffle = (array) => {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+	var currentIndex = array.length, temporaryValue, randomIndex;
 
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
+	// While there remain elements to shuffle...
+	while (0 !== currentIndex) {
 
-        // Pick a remaining element...
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
+		// Pick a remaining element...
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex -= 1;
 
-        // And swap it with the current element.
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
+		// And swap it with the current element.
+		temporaryValue = array[currentIndex];
+		array[currentIndex] = array[randomIndex];
+		array[randomIndex] = temporaryValue;
+	}
 
-    return array;
+	return array;
 }
 
 //private function to get a random index from the text word array
