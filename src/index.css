@@ -195,7 +195,7 @@ body {
   background-repeat: repeat;
   box-shadow: var(--shadow);
   border-radius: 3px;
-  width: 60%;
+  width: 50%;
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -210,8 +210,13 @@ body {
 }
 
 .info-p {
-  line-height: 120%;
+  line-height: 130%;
   margin-bottom: 10px;
+}
+
+.info-link {
+  width: min-content;
+  white-space: nowrap;
 }
 
 .info-close-button {
@@ -410,7 +415,7 @@ a:hover {
 .word-wrapper {
   background-image: url('./img/paper-bg_1.png');
   background-repeat: repeat;
-  
+  padding: 5px;
   margin-bottom: 10px;
   width: min-content;
   word-wrap: none;
@@ -427,7 +432,7 @@ a:hover {
   width: min-content;
   cursor: move;
   border-radius: 3px;
-  padding: 5px;
+  
 }
 
 .author-drag {
