@@ -268,6 +268,7 @@ export default class FillBlank {
 			allWordReg = new RegExp(allWordExp, "g");
 		}
 		catch { //revert to less robust exp if there's an error
+			console.error('RegEx feature not supported, using fallback')
 			let allWordExp = "([-’'%$#&\/]\\b|\\b[-’'%$#&\/]|[-A-Za-z0-9]|([A-Za-z0-9]+))*"
 			allWordReg = new RegExp(allWordExp, "g");
 		}

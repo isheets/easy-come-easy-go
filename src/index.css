@@ -190,6 +190,15 @@ body {
   margin: 5px;
 }
 
+.info-bg {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(129, 129, 129, 0.7);
+}
+
 .info-content {
   background-image: url('./img/paper-bg_1.png');
   background-repeat: repeat;
@@ -217,6 +226,7 @@ body {
 .info-link {
   width: min-content;
   white-space: nowrap;
+  margin-bottom: 5px;
 }
 
 .info-close-button {
@@ -431,7 +441,7 @@ a:hover {
   white-space: nowrap;
   width: min-content;
   cursor: move;
-  border-radius: 3px;
+  border-bottom: 1px solid rgba(191,4,4, .5);
   
 }
 
@@ -645,7 +655,7 @@ button:active, .twitter-login-button:active {
 .slide-up-appear-active {
   opacity: 1;
   transform: translateY(0%);
-  transition: transform 1000ms ease-in-out, opacity 500ms linear;
+  transition: transform 1000ms cubic-bezier(.72,.19,.68,.95), opacity 500ms linear;
   box-shadow: var(--shadow);
 }
 .slide-up-enter {
@@ -658,7 +668,7 @@ button:active, .twitter-login-button:active {
 .slide-up-enter-active {
   opacity: 1;
   transform: translateY(0%);
-  transition: transform 1000ms ease-in-out, opacity 500ms linear;
+  transition: transform 1000ms cubic-bezier(.72,.19,.68,.95), opacity 500ms linear;
   box-shadow: var(--shadow);
 }
 
@@ -684,7 +694,7 @@ button:active, .twitter-login-button:active {
 .fade-slow-appear-active {
   transform: translateY(0%);
   opacity: 1;
-  transition: transform 1000ms ease-out, opacity 1000ms linear;
+  transition: transform 1000ms ease-in-out, opacity 1000ms linear;
   visibility: visible;
 }
 
@@ -697,7 +707,7 @@ button:active, .twitter-login-button:active {
 .slide-up-slow-appear-active {
   opacity: 1;
   transform: translateY(0%);
-  transition: transform 2000ms ease-in-out, opacity 1000ms linear;
+  transition: transform 2000ms cubic-bezier(.72,.19,.68,.95), opacity 1000ms linear;
   box-shadow: var(--shadow);
 }
 .slide-up-slow-enter {
@@ -710,7 +720,7 @@ button:active, .twitter-login-button:active {
 .slide-up-slow-enter-active {
   opacity: 1;
   transform: translateY(0%);
-  transition: transform 2000ms ease-in-out, opacity 1000ms linear;
+  transition: transform 2000ms cubic-bezier(.72,.19,.68,.95), opacity 1000ms linear;
   box-shadow: var(--shadow);
 }
 
@@ -764,6 +774,7 @@ button:active, .twitter-login-button:active {
 
 .noTrespassingBarLineG{
   background-color: rgba(0,0,0,1);
+  box-shadow: var(--shadow);
 	float:left;
 	width:23px;
 	height:195px;

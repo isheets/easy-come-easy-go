@@ -213,6 +213,7 @@ const App = () => {
           onRequestClose={() => dispatch(hideInfo())}
           style={customStyles}
           contentLabel="About the site"
+          overlayClassName='info-bg'
           className="info-content"
         >
           <Info />
