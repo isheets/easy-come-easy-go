@@ -279,7 +279,7 @@ body {
 
 .user-pic {
   margin-right: 5px;
-  width: 40px;
+  width: 30px;
   border-radius: 3px;
   filter: grayscale(100%);
 }
@@ -329,6 +329,17 @@ body {
   width: min-content;
   white-space: nowrap;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.tweet-nav-title {
+  margin-bottom: 20px;
+}
+
+.tweet-nav-button {
+  width: min-content;
+  align-self: center;
 }
 
 .no-new-tweets {

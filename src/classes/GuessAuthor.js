@@ -1,6 +1,4 @@
 import store from './../index';
-import { toast, Zoom } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import GameController from './GameController';
 
 import badFile from './../sound/bad.mp3'
@@ -112,30 +110,13 @@ export default class GuessAuthor {
             this.fail();
         }
         else {
-            toast.error('Wrong! ' + this.lives + " lives remaining.", {
-                position: "top-center",
-                autoClose: 2000,
-                closeButton: false,
-                pauseOnHover: true,
-                draggable: false,
-                transition: Zoom,
-                hideProgressBar: true
-            });
+            //THIS IS WHERE STRIKE ANIMATION FIRING CODE SHOULD GO
             this.parent.updateGame(this);
         }
     }
 
     async success() {
         //get the next tweet
-        toast.success('Tweet completed correctly!', {
-            position: "top-center",
-            autoClose: 2000,
-            closeButton: false,
-            pauseOnHover: true,
-            draggable: false,
-            transition: Zoom,
-            hideProgressBar: true
-        });
         if (store.getState().ui.playSound === true) {
 			successSound.play();
 		}
@@ -148,15 +129,6 @@ export default class GuessAuthor {
     async fail() {
         //display some sort of failure message
         //proceed to next tweet
-        toast.error('Game over, man. Game over.', {
-            position: "top-center",
-            autoClose: 2000,
-            closeButton: false,
-            pauseOnHover: true,
-            draggable: false,
-            transition: Zoom,
-            hideProgressBar: true
-        });
         if (store.getState().ui.playSound === true) {
 			failSound.play();
 		}

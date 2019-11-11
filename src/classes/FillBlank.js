@@ -2,8 +2,6 @@ import React from "react";
 import verbs from "./../custom-dict/verbs";
 import posMap from "./../config/pos";
 import Blank from "../components/TweetCard/TweetContent/WordBlank";
-import { toast, Zoom } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import GameController from "./GameController";
 import store from '../index';
 
@@ -169,15 +167,8 @@ export default class FillBlank {
 			this.fail();
 		}
 		else {
-			toast.error('Wrong! ' + this.lives + " lives remaining.", {
-				position: "top-center",
-				autoClose: 2000,
-				closeButton: false,
-				pauseOnHover: true,
-				draggable: false,
-				transition: Zoom,
-				hideProgressBar: true
-			});
+
+			//THIS IS WHERE STRIKE ANIMATION FIRING CODE SHOULD GO
 			this.parent.updateGame(this);
 		}
 	}
@@ -195,16 +186,6 @@ export default class FillBlank {
 
 	//game is done and everything is correct
 	async success() {
-		//get the next tweet
-		toast.success('Tweet completed correctly!', {
-			position: "top-center",
-			autoClose: 2000,
-			closeButton: false,
-			pauseOnHover: true,
-			draggable: false,
-			transition: Zoom,
-			hideProgressBar: true
-		});
 		if (store.getState().ui.playSound === true) {
 			successSound.play();
 		}
@@ -221,15 +202,6 @@ export default class FillBlank {
 	async fail() {
 		//display some sort of failure message
 		//proceed to next tweet
-		toast.error('Game over, man. Game over.', {
-			position: "top-center",
-			autoClose: 2000,
-			closeButton: false,
-			pauseOnHover: true,
-			draggable: false,
-			transition: Zoom,
-			hideProgressBar: true
-		});
 		if (store.getState().ui.playSound === true) {
 			failSound.play();
 		}

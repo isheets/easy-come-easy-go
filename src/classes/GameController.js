@@ -9,17 +9,10 @@ import {
   tweetOut,
   optionsOut
 } from "../actions";
+import { toast, Zoom } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 var he = require('he');
-
-/*
-TODO:
-handle rate-limiting or no new tweets - inside new game 
-scrub URLS from quote tweets
-
-BUGS:
-double init on reload when tweets fetched more than six hours ago
-*/
 
 export default class GameController {
 
@@ -117,6 +110,15 @@ export default class GameController {
           state.game.curGame = {};
           state.game.curGame.type = 'NoTweets';
         }
+        toast.error("No new tweets to fetch.", {
+          position: "bottom-center",
+          autoClose: 2000,
+          closeButton: false,
+          pauseOnHover: true,
+          draggable: false,
+          transition: Zoom,
+          hideProgressBar: true
+        });
         this.updateGame(state.game.curGame);
       }
       else {

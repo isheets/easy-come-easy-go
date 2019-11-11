@@ -59,8 +59,8 @@ const TweetNav = () => {
 
     return (
         <div className="tweet-nav-wrapper">
-            <h2>{message}</h2>
-            <button onClick={() => animateAndNext(fail)}>NEXT &#x27AA;</button>
+            <h2 className='tweet-nav-title'>{message}</h2>
+            <button className='tweet-nav-button small-text' onClick={() => animateAndNext(fail)}>NEXT &#x27AA;</button>
         </div>
     )
 }
