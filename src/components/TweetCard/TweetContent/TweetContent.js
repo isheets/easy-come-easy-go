@@ -14,7 +14,7 @@ let printSound = new Audio(printFile);
 
 const TweetContent = () => {
 
-    console.log('rendering content');
+    let soundState = useSelector(state => state.ui.playSound);
 
     const enterTransition = () => {
         dispatch(tweetIn());
@@ -27,7 +27,9 @@ const TweetContent = () => {
 
     
     const playSound = () => {
-        printSound.play();
+        if(soundState === true) {
+            printSound.play();
+        }
     }
 
     let curGame = useSelector(state => state.game.curGame);

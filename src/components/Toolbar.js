@@ -1,5 +1,5 @@
 import React from 'react';
-import {playSound, muteSound, showInfo, hideInfo} from './../actions';
+import {playSound, muteSound, showInfo} from './../actions';
 import {useSelector, useDispatch} from 'react-redux';
 
 
@@ -7,6 +7,8 @@ import soundImage from './../img/sound.svg';
 import muteImage from './../img/no_sound.svg';
 import infoImage from './../img/info.svg';
 
+import clickFile from './../sound/click.mp3';
+let clickSound = new Audio(clickFile);
 
 
 const Toolbar = () => {
@@ -20,6 +22,7 @@ const Toolbar = () => {
         }
         else {
             dispatch(playSound());
+            clickSound.play();
         }
     }
 
@@ -34,7 +37,12 @@ const Toolbar = () => {
     return (
         <div className='bottom-toolbar'>
             <img src={soundStateImage} className='sound-image toolbar-image' onClick={() => toggleSound()}></img>
-            <img src={infoImage} className='info-image toolbar-image' onClick={() => dispatch(showInfo())}></img>
+            <img src={infoImage} className='info-image toolbar-image' onClick={() => {
+                    if(soundState === true) {
+                        clickSound.play();
+                    }
+                    dispatch(showInfo())
+                }}></img>
         </div>
     );
 }

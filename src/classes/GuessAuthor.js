@@ -91,6 +91,9 @@ export default class GuessAuthor {
     handleDrop(correct) {
         //correct drop! do some things
         if (correct) {
+            if (store.getState().ui.playSound === true) {
+                goodSound.play();
+            }
             this.success();
         }
         //incorrect drop! do some other things
@@ -102,7 +105,9 @@ export default class GuessAuthor {
     incorrectDrop() {
         //subtract life
         this.lives = this.lives - 1;
-        badSound.play();
+        if (store.getState().ui.playSound === true) {
+			badSound.play();
+		}
         if (this.lives === 0) {
             this.fail();
         }
@@ -131,7 +136,9 @@ export default class GuessAuthor {
             transition: Zoom,
             hideProgressBar: true
         });
-        successSound.play();
+        if (store.getState().ui.playSound === true) {
+			successSound.play();
+		}
         await this.parent.animateOut();
         this.status = 'Success'
         this.type = 'Complete';
@@ -150,7 +157,9 @@ export default class GuessAuthor {
             transition: Zoom,
             hideProgressBar: true
         });
-        failSound.play();
+        if (store.getState().ui.playSound === true) {
+			failSound.play();
+		}
         await this.parent.animateOut();
         this.status = 'Fail'
         this.type = 'Complete';

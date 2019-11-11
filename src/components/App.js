@@ -59,7 +59,9 @@ const onSuccessAuth = async (response) => {
     //successful auth, update store
     if (token) {
       console.log("User auth successful :)");
-      successSound.play();
+      if (playSound) {
+        successSound.play();
+      }
 
       //dispatch the user object to store
       dispatch(updateUser(user));
@@ -73,7 +75,9 @@ const onSuccessAuth = async (response) => {
 };
 
 const logout = () => {
-  clickSound.play();
+  if (playSound) {
+    clickSound.play();
+  }
   //clear cache
   localStorage.removeItem('state');
   //set state to initial
@@ -102,6 +106,12 @@ const App = () => {
   }
 
   let welcome = false;
+
+  let playPrintSound = () => {
+    if (playSound) {
+      printSound.play();
+    }
+  }
 
 
   if (user.isAuthenticated === true) {
@@ -132,7 +142,9 @@ const App = () => {
             <h3>Try again later.</h3>
             <button
               onClick={() => {
-                clickSound.play();
+                if (playSound) {
+                  clickSound.play();
+                }
                 gameController.newGame();
               }}
               className="button"
@@ -181,6 +193,7 @@ const App = () => {
             in={animateOptions}
             classNames={animation}
             timeout={animationDur}
+            appear={true}
           >
             <div className={"main-grid-col-2 " + gridSpan + " " + animation}>
               {game.curGame.type === 'Complete' || game.curGame.type === 'NoTweets' ?
@@ -204,7 +217,7 @@ const App = () => {
           contentLabel="About the site"
           className="info-content"
         >
-          <Info/>
+          <Info />
         </Modal>
       </div>
     );
@@ -274,7 +287,7 @@ const App = () => {
             classNames={'slide-up-slow'}
             appear={true}
             timeout={2000}
-            onEntering={() => printSound.play()}
+            onEntering={() => playPrintSound()}
             onEntered={() => printSound.pause()}
           >
             <div className="welcome-message-wrapper">
@@ -291,6 +304,7 @@ const App = () => {
 
     );
   }
+
 
 
   return <Fragment>{content}</Fragment>;

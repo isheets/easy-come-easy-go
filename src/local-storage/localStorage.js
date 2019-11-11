@@ -34,6 +34,7 @@ export const loadState = () => {
       else if(parsedState.game.curGame.type === 'Complete') {
         gameFromJson.type = 'Complete';
         gameFromJson.curTweet = parsedState.game.curGame.curTweet;
+        gameFromJson.status = parsedState.game.curGame.status;
       }
       else if(parsedState.game.curGame.type === 'NoTweets') {
         gameFromJson.type = 'NoTweets';

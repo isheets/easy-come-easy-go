@@ -51,7 +51,8 @@ store.subscribe(
   throttle(() => {
     saveState({
       game: store.getState().game,
-      user: store.getState().user
+      user: store.getState().user,
+      ui: store.getState().ui
     });
   }, 1000)
 );

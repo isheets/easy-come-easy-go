@@ -14,7 +14,9 @@ let dispatch;
 
 
 let animateAndNext = async (fail) => {
-    clickSound.play();
+    if(playSound === true) {
+        clickSound.play();
+    }
     if (fail === true) {
         dispatch(optionsOut());
         setTimeout(function () {
@@ -32,11 +34,14 @@ let animateAndNext = async (fail) => {
 
 }
 
+let playSound = true;
+
 const TweetNav = () => {
 
     dispatch = useDispatch();
 
     let curGame = useSelector(state => state.game.curGame);
+    playSound = useSelector(state => state.ui.playSound);
 
     let message = 'Tweet completed.';
 

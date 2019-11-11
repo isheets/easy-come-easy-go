@@ -5,6 +5,7 @@ import Blank from "../components/TweetCard/TweetContent/WordBlank";
 import { toast, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import GameController from "./GameController";
+import store from '../index';
 
 import badFile from './../sound/bad.mp3'
 import goodFile from './../sound/type.mp3';
@@ -147,9 +148,11 @@ export default class FillBlank {
 	//handles a correct drop
 	correctDrop() {
 		//probably add word here
-		goodSound.play();
+		if (store.getState().ui.playSound === true) {
+			goodSound.play();
+		}
 		let done = this.checkDone();
-		if(done) {
+		if (done) {
 			this.parent.updateGame(this);
 		}
 		return true;
@@ -159,7 +162,9 @@ export default class FillBlank {
 	incorrectDrop() {
 		//subtract life
 		this.lives = this.lives - 1;
-		badSound.play();
+		if (store.getState().ui.playSound === true) {
+			badSound.play();
+		}
 		if (this.lives === 0) {
 			this.fail();
 		}
@@ -200,7 +205,9 @@ export default class FillBlank {
 			transition: Zoom,
 			hideProgressBar: true
 		});
-		successSound.play();
+		if (store.getState().ui.playSound === true) {
+			successSound.play();
+		}
 		await this.parent.animateOut();
 		this.type = 'Complete';
 		this.status = 'Success'
@@ -223,7 +230,9 @@ export default class FillBlank {
 			transition: Zoom,
 			hideProgressBar: true
 		});
-		failSound.play();
+		if (store.getState().ui.playSound === true) {
+			failSound.play();
+		}
 		await this.parent.animateOut();
 		this.type = 'Complete';
 		this.status = 'Fail'
@@ -424,7 +433,7 @@ export default class FillBlank {
 		let curWordIdx = 0;
 
 		let startIdx;
-		if(parts[0] == '') {
+		if (parts[0] == '') {
 			startIdx = 1;
 		}
 		else {
