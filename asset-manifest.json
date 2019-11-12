@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/easy-come-easy-go/static/css/main.c98f92af.chunk.css",
-    "main.js": "/easy-come-easy-go/static/js/main.a54df7f2.chunk.js",
-    "main.js.map": "/easy-come-easy-go/static/js/main.a54df7f2.chunk.js.map",
+    "main.js": "/easy-come-easy-go/static/js/main.cedcd78f.chunk.js",
+    "main.js.map": "/easy-come-easy-go/static/js/main.cedcd78f.chunk.js.map",
     "runtime-main.js": "/easy-come-easy-go/static/js/runtime-main.9a1da66c.js",
     "runtime-main.js.map": "/easy-come-easy-go/static/js/runtime-main.9a1da66c.js.map",
     "static/css/2.5dbdccff.chunk.css": "/easy-come-easy-go/static/css/2.5dbdccff.chunk.css",
     "static/js/2.55d55526.chunk.js": "/easy-come-easy-go/static/js/2.55d55526.chunk.js",
     "static/js/2.55d55526.chunk.js.map": "/easy-come-easy-go/static/js/2.55d55526.chunk.js.map",
     "index.html": "/easy-come-easy-go/index.html",
-    "precache-manifest.98c12fe8ba21722a6025f6a2efd12fa9.js": "/easy-come-easy-go/precache-manifest.98c12fe8ba21722a6025f6a2efd12fa9.js",
+    "precache-manifest.591bc0623ec6f44cbd781b649098e35c.js": "/easy-come-easy-go/precache-manifest.591bc0623ec6f44cbd781b649098e35c.js",
     "service-worker.js": "/easy-come-easy-go/service-worker.js",
     "static/css/2.5dbdccff.chunk.css.map": "/easy-come-easy-go/static/css/2.5dbdccff.chunk.css.map",
     "static/css/main.c98f92af.chunk.css.map": "/easy-come-easy-go/static/css/main.c98f92af.chunk.css.map",
@@ -30,6 +30,6 @@
     "static/css/2.5dbdccff.chunk.css",
     "static/js/2.55d55526.chunk.js",
     "static/css/main.c98f92af.chunk.css",
-    "static/js/main.a54df7f2.chunk.js"
+    "static/js/main.cedcd78f.chunk.js"
   ]
 }
