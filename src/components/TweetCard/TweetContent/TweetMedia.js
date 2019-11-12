@@ -42,7 +42,7 @@ const TweetMedia = props => {
   if (tweetWithMedia !== null) {
     if (tweetWithMedia.hasMedia) {
       const mediaAr = tweetWithMedia.media;
-      console.log(mediaAr);
+      //console.log(mediaAr);
       numMedia = mediaAr.length;
       //we have some media to render!
       for (let i = 0; i < mediaAr.length; i++) {
@@ -72,7 +72,7 @@ const TweetMedia = props => {
           );
         }
       }
-      console.log(mediaURLs);
+      //console.log(mediaURLs);
       content = (
         <div className={"tweet-media-grid-" + numMedia}>
           {imgAr}
@@ -80,7 +80,7 @@ const TweetMedia = props => {
           <FsLightbox toggler={lbVisible} slide={curSlide} sources={mediaURLs} />
         </div>
       );
-      console.log(content);
+      //console.log(content);
     } else {
       content = null;
     }

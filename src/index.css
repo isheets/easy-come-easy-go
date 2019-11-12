@@ -458,7 +458,6 @@ a:hover {
   margin-bottom: 10px;
   border-radius: 3px;
   box-shadow: var(--shadow);
-
 }
 
 .author-blank {
@@ -811,6 +810,16 @@ button:active, .twitter-login-button:active {
 		-moz-animation-timing-function:linear;
 }
 
+
+.toast {
+  background-color: var(--tan);
+  text-align: center;
+  box-shadow: var(--shadow);
+  color: var(--red);
+  font-family: ibm-plex-mono, sans-serif;
+  font-weight: 700;
+  border-radius: 3px;
+}
 
 
 @keyframes noTrespassingAnimationG{

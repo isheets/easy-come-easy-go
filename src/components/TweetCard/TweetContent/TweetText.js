@@ -55,7 +55,7 @@ const TweetText = props => {
 		else if (game.type === 'FillBlank') {
 			header = <h2 className="section-title">Complete the Tweet:</h2>
 			textToRender = game.textToRender;
-			console.log(textToRender);
+			//console.log(textToRender);
 			if (curTweet.urls !== null) {
 				for (let i = 0; i < curTweet.urls.length; i++) {
 					urlsToRender.push(

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 const Blank = props => {
 
-  console.log('rendering blank');
+  //console.log('rendering blank');
 
   let extractedWord = props.extractedWord;
   let blankOrder = props.blankOrder;

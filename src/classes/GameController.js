@@ -17,7 +17,7 @@ export default class GameController {
 
   //fetch data and create a new game
   async init() {
-    console.log("init")
+    //console.log("init")
     let tweets = await this.fetchNewTweets();
     let friends = await this.fetchAllFriends();
     let newGame = await this.newGame(true, tweets, friends);
@@ -43,17 +43,17 @@ export default class GameController {
   }
 
   async newGame(shouldReturn, tweets, friends) {
-    console.log("creating new game");
+    //console.log("creating new game");
     //determine FillBlank or GuessAuthor psuedo randomly and instantiate
     let state = store.getState();
     //get all the tweets
     let allTweets;
     if (tweets) {
-      console.log('using tweets parameter');
+      //console.log('using tweets parameter');
       allTweets = tweets;
     }
     else {
-      console.log('using tweets from state')
+      //console.log('using tweets from state')
       allTweets = state.game.parsedTweets;
     }
 
@@ -97,9 +97,9 @@ export default class GameController {
 
     }
     else {
-      console.log("out of tweets, fetching more");
+      //console.log("out of tweets, fetching more");
       let newTweets = await this.fetchNewTweets();
-      console.log(newTweets);
+      //console.log(newTweets);
       if (newTweets === null || Object.keys(newTweets).length < 1) {
         console.error('Out of tweets in GameController.newGame()');
         if (state.game.curGame !== null) {
@@ -109,19 +109,20 @@ export default class GameController {
           state.game.curGame = {};
           state.game.curGame.type = 'NoTweets';
         }
-        toast.error("No new tweets to fetch.", {
+        toast.error("NO NEW TWEETS TO FETCH", {
           position: "bottom-center",
           autoClose: 2000,
           closeButton: false,
           pauseOnHover: true,
           draggable: false,
           transition: Zoom,
-          hideProgressBar: true
+          hideProgressBar: true,
+          className:'toast'
         });
         this.updateGame(state.game.curGame);
       }
       else {
-        console.log('Got ' + Object.keys(newTweets).length - 1 + ' new tweets.')
+        //console.log('Got ' + Object.keys(newTweets).length - 1 + ' new tweets.')
         this.updateTweets(newTweets);
         this.newGame();
       }
@@ -135,7 +136,7 @@ export default class GameController {
   }
 
   newGuessAuthor(tweet) {
-    console.log("couldn't extract words, constructing GuessAuthor");
+    //console.log("couldn't extract words, constructing GuessAuthor");
 
     let newGame = new GuessAuthor(tweet);
     newGame.getRandomFriends(undefined, true);
@@ -173,7 +174,7 @@ export default class GameController {
   async fetchNewTweets(updateStore) {
 
     let state = store.getState();
-    console.log("fetchNewTweets");
+    //console.log("fetchNewTweets");
 
     //only fetch if we have authenticated
     if (state.user.userDetails !== null) {
@@ -194,7 +195,7 @@ export default class GameController {
           .then(response => {
             //make sure response not null
             if (response) {
-              console.log(response);
+              //console.log(response);
               if (response.errors) {
                 console.error('errors fetching new tweets');
                 return null;
@@ -216,7 +217,7 @@ export default class GameController {
             }
           })
           .catch(res => {
-            console.log(res);
+            //console.log(res);
             return null;
           });
       } else {
@@ -232,7 +233,7 @@ export default class GameController {
 
     //get first page of 20 users (wait for async fetch funtion)
     let response = await fetchFriends();
-    console.log(response);
+    //console.log(response);
     let cursor;
 
     //get susequent pages of users
@@ -242,7 +243,7 @@ export default class GameController {
       }
       cursor = response.next_cursor_str;
       response = await fetchFriends(cursor);
-      console.log(response);
+      //console.log(response);
     }
 
     //make sure we got some data
@@ -328,9 +329,9 @@ const parseRawTweets = rawTweets => {
   for (let tweet of rawTweets) {
     //throw out if the tweet is a retweet
     if (tweet.retweeted_status) {
-      console.log("Tweet not parsed; is a retweet");
+      //console.log("Tweet not parsed; is a retweet");
     } else if (tweet.in_reply_to_status_id !== null) {
-      console.log("Tweet not parsed; is a reply");
+      //console.log("Tweet not parsed; is a reply");
     } else {
       //construct the object
       let newTweet = {};
@@ -454,13 +455,13 @@ const parseRawTweets = rawTweets => {
           newTweets.unshift(newTweet);
         }
       } else {
-        console.log(
-          "TWEET PROCESSED BUT HAD NO TEXT AT THE END OF parseRawTweets()"
-        );
+        //console.log(
+          //"TWEET PROCESSED BUT HAD NO TEXT AT THE END OF parseRawTweets()"
+        //);
       }
     }
   }
-  console.log(newTweets);
+  //console.log(newTweets);
 
   return newTweets;
 

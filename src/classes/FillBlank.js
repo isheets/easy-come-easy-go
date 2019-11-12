@@ -64,7 +64,7 @@ export default class FillBlank {
 
 	//takes a drop and checks if it's true
 	handleDrop(droppedWord, droppedIn, correctDrop) {
-		//console.log("droppedWord: " + droppedWord + ", droppedIn: " + droppedIn);
+		////console.log("droppedWord: " + droppedWord + ", droppedIn: " + droppedIn);
 
 		let newWordObj = {
 			word: droppedWord,
@@ -84,12 +84,12 @@ export default class FillBlank {
 
 		//check if we already dropped the word, move it if so and stop
 		if (this.checkMovedWord(droppedWord)) {
-			console.log("moved word");
+			//console.log("moved word");
 			for (let i = 0; i < this.droppedWords.length; i++) {
 				let wordObj = this.droppedWords[i];
-				console.log(wordObj);
+				//console.log(wordObj);
 				if (wordObj.word === newWordObj.word) {
-					console.log(wordObj);
+					//console.log(wordObj);
 					this.droppedWords[i] = newWordObj;
 				}
 			}
@@ -97,7 +97,7 @@ export default class FillBlank {
 
 		//check if already filled the blank, change the word if so
 		else if (this.checkAlreadyDropped(droppedIn)) {
-			console.log("already dropped");
+			//console.log("already dropped");
 			for (let i = 0; i < this.droppedWords.length; i++) {
 				let wordObj = this.droppedWords[i];
 				if (wordObj.droppedIn === newWordObj.droppedIn) {
@@ -178,7 +178,7 @@ export default class FillBlank {
 	//checks if we have filled all the blanks
 	checkDone() {
 		//finally check if we've finished completing the tweet
-		console.log('checking to see if we completed the entire tweet');
+		//console.log('checking to see if we completed the entire tweet');
 		if (this.droppedWords.length === this.extractedWords.length) {
 			this.success();
 			return true;
@@ -319,7 +319,7 @@ export default class FillBlank {
 
 
 			if (numCheckedWords === wordAr.length - 1) {
-				console.log("checked all the words");
+				//console.log("checked all the words");
 				//can't do FIB so resort to GuessAuthor
 				this.type = 'NoWords';
 				return null;
@@ -373,7 +373,7 @@ export default class FillBlank {
 		foundWordArray.sort((a, b) => (a.start > b.start ? 1 : -1));
 
 		//set property incase we need to re-extract later
-		console.log('setting foundWords')
+		//console.log('setting foundWords')
 		this.foundWords = foundWordArray;
 
 		//we have a sorted array of words we want to extract and their start/end indexes
@@ -381,7 +381,7 @@ export default class FillBlank {
 	}
 
 	extractWords() {
-		console.log('extractingWords');
+		//console.log('extractingWords');
 		//get the text
 		let text = this.curTweet.text;
 		let foundWordArray = this.foundWords;
@@ -402,7 +402,7 @@ export default class FillBlank {
 
 			//replace the word with a blank placeholder
 			text = text.replace(foundWordRegex, "*!*!%[need a blank here plzz]*!*!%");
-			//console.log("text after replace:" + text);
+			////console.log("text after replace:" + text);
 		}
 
 		//split text into array at seperators
@@ -469,7 +469,7 @@ export default class FillBlank {
 
 		this.setExtractedWords(extractWordObjs);
 
-		console.log(jsxAr);
+		//console.log(jsxAr);
 
 		return jsxAr;
 	}
@@ -545,7 +545,7 @@ var shuffle = (array) => {
 let usedIdx = [];
 
 var getRandomUniqueIndex = max => {
-	//console.log("usedIdx: " + usedIdx);
+	////console.log("usedIdx: " + usedIdx);
 	let newIdx = Math.floor(Math.random() * Math.floor(max));
 	while (usedIdx.includes(newIdx) && usedIdx.length < max) {
 		newIdx = Math.floor(Math.random() * Math.floor(max));

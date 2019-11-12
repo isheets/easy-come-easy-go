@@ -48,17 +48,17 @@ let dispatch;
 let gameController = new GameController();
 
 const onFailedAuth = error => {
-  console.log("Twitter auth failed :(");
-  console.log(error);
+  //console.log("Twitter auth failed :(");
+  console.error(error);
 };
 
 const onSuccessAuth = async (response) => {
   const token = response.headers.get("x-auth-token");
-  console.log(response);
+  //console.log(response);
   response.json().then(async user => {
     //successful auth, update store
     if (token) {
-      console.log("User auth successful :)");
+      //console.log("User auth successful :)");
       if (playSound) {
         successSound.play();
       }
@@ -117,7 +117,7 @@ const App = () => {
       //we have a game
       const sixHours = 6 * 60 * 60 * 1000;
       if (Date.now() - game.lastTweetFetchDate > sixHours) {
-        console.log("last fetched more than six hours ago, re-fetching and creating new game now now")
+        //console.log("last fetched more than six hours ago, re-fetching and creating new game now now")
         gameController.init();
 
         game.curGame = null;
@@ -170,7 +170,7 @@ const App = () => {
 
   let content = null;
 
-  console.log("using " + animation + ' for options animation');
+  //console.log("using " + animation + ' for options animation');
 
   if (user.isAuthenticated && game.curGame !== null) {
     content = (

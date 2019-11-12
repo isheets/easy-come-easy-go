@@ -2,11 +2,11 @@ import React from "react";
 import { useDrop } from "react-dnd";
 
 const AuthorBlank = () => {
-    console.log('rendering blank');
+    //console.log('rendering blank');
     const [{ canDrop, isOver, authorBeingDragged }, drop] = useDrop({
         accept: "author",
         hover: (item, monitor) => {
-            console.log(monitor);
+            //console.log(monitor);
         },
         collect: monitor => ({
             isOver: monitor.isOver(),
