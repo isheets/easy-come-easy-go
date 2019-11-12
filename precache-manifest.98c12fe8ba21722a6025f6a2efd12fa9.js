@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2c908ab83fcc365d3a70772802de2bd4",
+    "revision": "63c4adf424f564bf0abe5ab71fdcf99d",
     "url": "/easy-come-easy-go/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/easy-come-easy-go/static/css/2.5dbdccff.chunk.css"
   },
   {
-    "revision": "43f6c278b5d51fd5df80",
+    "revision": "5ff8785e9daae3e6dbef",
     "url": "/easy-come-easy-go/static/css/main.c98f92af.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/easy-come-easy-go/static/js/2.55d55526.chunk.js"
   },
   {
-    "revision": "43f6c278b5d51fd5df80",
-    "url": "/easy-come-easy-go/static/js/main.cfda8266.chunk.js"
+    "revision": "5ff8785e9daae3e6dbef",
+    "url": "/easy-come-easy-go/static/js/main.a54df7f2.chunk.js"
   },
   {
     "revision": "764a94c1fc464cf715f9",
