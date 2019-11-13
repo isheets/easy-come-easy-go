@@ -8,7 +8,7 @@ const QuoteTweet = () => {
         <div className="quote-tweet-grid">
             <div className="quote-tweet-content">
                 <TweetText quote={true} />
-                <TweetMedia />
+                <TweetMedia quote={true} />
             </div>
         </div>
     )

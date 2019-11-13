@@ -78,10 +78,11 @@ const logout = () => {
   if (playSound) {
     clickSound.play();
   }
-  //clear cache
-  localStorage.removeItem('state');
+
   //set state to initial
   dispatch(logoutAndReset());
+  //clear cache
+  localStorage.removeItem('state');
 }
 
 let playSound = true;

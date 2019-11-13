@@ -29,7 +29,7 @@ const TweetMedia = props => {
   //check if tweet with media we are rendering is quote or orginial
 
   if (quote === true) {
-    tweetWithMedia = curTweet.quote;
+    tweetWithMedia = curTweet.quoteTweet;
   } else {
     tweetWithMedia = curTweet;
   }
