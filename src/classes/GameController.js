@@ -100,6 +100,7 @@ export default class GameController {
     else {
       //console.log("out of tweets, fetching more");
       let newTweets = await this.fetchNewTweets();
+      console.log(newTweets);
       //console.log(newTweets);
       if (newTweets === null || Object.keys(newTweets).length < 1) {
         console.error('Out of tweets in GameController.newGame()');
@@ -188,7 +189,7 @@ export default class GameController {
 
       if (userToken !== null && userTokenSecret !== null) {
         return await fetch(
-          `https://slow-twitter.appspot.com/api/v1/timeline?aT=${userToken}&aTS=${userTokenSecret}${
+          `http://localhost:8080/api/v1/timeline?aT=${userToken}&aTS=${userTokenSecret}${
           lastTweetFetched ? `&since=${lastTweetFetched}` : ``
           }`,
           { headers: { "Content-Type": "application/json; charset=utf-8" } }
@@ -277,7 +278,7 @@ const fetchFriends = async (cursor) => {
 
   if (userToken !== null && userTokenSecret !== null) {
     return await fetch(
-      `https://slow-twitter.appspot.com/api/v1/friends/list?aT=${userToken}&aTS=${userTokenSecret}${cursor ? `&cursor=${cursor}` : ``}`,
+      `http://localhost:8080/api/v1/friends/list?aT=${userToken}&aTS=${userTokenSecret}${cursor ? `&cursor=${cursor}` : ``}`,
       { headers: { "Content-Type": "application/json; charset=utf-8" } }
     )
       .then(res => res.json())
@@ -427,7 +428,7 @@ const parseRawTweets = rawTweets => {
             //remove the in-text media link from the tweet text
             newTweet.quoteTweet.text = newTweet.quoteTweet.text.replace(tweet.quoted_status.extended_entities.media[i].url, "");
             newTweet.quoteTweet.media[i] = {};
-            newTweet.media[i].type = tweet.extended_entities.media[i].type;
+            newTweet.quoteTweet.media[i].type = tweet.quoted_status.extended_entities.media[i].type;
             if (newTweet.quoteTweet.media[i].type === "photo") {
               newTweet.quoteTweet.media[i].url =
                 tweet.quoted_status.extended_entities.media[i].media_url_https;
@@ -459,7 +460,7 @@ const parseRawTweets = rawTweets => {
       }
     }
   }
-  //console.log(newTweets);
+  console.log(newTweets);
 
   return newTweets;
 

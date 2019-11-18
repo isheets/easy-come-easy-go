@@ -178,7 +178,7 @@ const App = () => {
       <div className="page-wrapper">
         <div className="top-bar">
           <div className="title">
-            <h1>EASY COME, EASY GO</h1>
+            <h1>COMPLETE-A-TWEET 2000</h1>
           </div>
           <div className="user-info">
             <img src={user.userDetails.img} alt='your profile avatar' className='user-pic'></img>
@@ -230,7 +230,7 @@ const App = () => {
       <div className="page-wrapper">
         <div className="top-bar">
           <div className="title">
-            <h1>EASY COME, EASY GO</h1>
+            <h1>COMPLETE-A-TWEET 2000</h1>
           </div>
           <div className="user-info">
             <img src={user.userDetails.img} alt='your profile avatar' className='user-pic'></img>
@@ -266,14 +266,14 @@ const App = () => {
         >
           <div className="top-bar">
             <div className="title">
-              <h1>EASY COME, EASY GO</h1>
+              <h1>COMPLETE-A-TWEET 2000</h1>
             </div>
             <div className="user-info">
               <TwitterLogin
-                loginUrl="https://slow-twitter.appspot.com/api/v1/auth/twitter"
+                loginUrl="http://slow-twitter.appspot.com/api/v1/auth/twitter"
                 onFailure={onFailedAuth}
                 onSuccess={onSuccessAuth}
-                requestTokenUrl="https://slow-twitter.appspot.com/api/v1/auth/twitter/reverse"
+                requestTokenUrl="http://slow-twitter.appspot.com/api/v1/auth/twitter/reverse"
                 className="twitter-login-button small-text"
                 text="SIGN IN TO TWITTER"
                 showIcon={false}
