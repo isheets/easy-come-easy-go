@@ -100,6 +100,7 @@ export default class GameController {
     else {
       //console.log("out of tweets, fetching more");
       let newTweets = await this.fetchNewTweets();
+      console.log(newTweets);
       //console.log(newTweets);
       if (newTweets === null || Object.keys(newTweets).length < 1) {
         console.error('Out of tweets in GameController.newGame()');
@@ -421,13 +422,13 @@ const parseRawTweets = rawTweets => {
         if (tweet.quoted_status.extended_entities) {
           console.log("quoteTweet has media!");
           console.log(tweet.quoted_status);
-          newTweet.quoteTweet.media = {};
+          newTweet.quoteTweet.media = [];
           newTweet.quoteTweet.hasMedia = true;
           for (let i = 0; i < tweet.quoted_status.extended_entities.media.length; i++) {
             //remove the in-text media link from the tweet text
             newTweet.quoteTweet.text = newTweet.quoteTweet.text.replace(tweet.quoted_status.extended_entities.media[i].url, "");
             newTweet.quoteTweet.media[i] = {};
-            newTweet.media[i].type = tweet.extended_entities.media[i].type;
+            newTweet.quoteTweet.media[i].type = tweet.quoted_status.extended_entities.media[i].type;
             if (newTweet.quoteTweet.media[i].type === "photo") {
               newTweet.quoteTweet.media[i].url =
                 tweet.quoted_status.extended_entities.media[i].media_url_https;
@@ -459,7 +460,7 @@ const parseRawTweets = rawTweets => {
       }
     }
   }
-  //console.log(newTweets);
+  console.log(newTweets);
 
   return newTweets;
 
