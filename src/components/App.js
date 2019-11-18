@@ -270,10 +270,10 @@ const App = () => {
             </div>
             <div className="user-info">
               <TwitterLogin
-                loginUrl="https://slow-twitter.appspot.com/api/v1/auth/twitter"
+                loginUrl="https://slow-twitter.appspot.com/api/v1/auth/twitter" //second step
                 onFailure={onFailedAuth}
                 onSuccess={onSuccessAuth}
-                requestTokenUrl="https://slow-twitter.appspot.com/api/v1/auth/twitter/reverse"
+                requestTokenUrl="https://slow-twitter.appspot.com/api/v1/auth/twitter/reverse" //first step
                 className="twitter-login-button small-text"
                 text="SIGN IN TO TWITTER"
                 showIcon={false}

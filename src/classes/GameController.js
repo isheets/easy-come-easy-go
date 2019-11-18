@@ -188,7 +188,7 @@ export default class GameController {
 
       if (userToken !== null && userTokenSecret !== null) {
         return await fetch(
-          `https://slow-twitter.appspot.com/api/v1/timeline?aT=${userToken}&aTS=${userTokenSecret}${
+          `https://slow-twitter.appspot.com/api/v1/timeline?aT=${userToken}&aTS=${userTokenSecret}${ // make the request
           lastTweetFetched ? `&since=${lastTweetFetched}` : ``
           }`,
           { headers: { "Content-Type": "application/json; charset=utf-8" } }
@@ -277,7 +277,7 @@ const fetchFriends = async (cursor) => {
 
   if (userToken !== null && userTokenSecret !== null) {
     return await fetch(
-      `https://slow-twitter.appspot.com/api/v1/friends/list?aT=${userToken}&aTS=${userTokenSecret}${cursor ? `&cursor=${cursor}` : ``}`,
+      `https://slow-twitter.appspot.com/api/v1/friends/list?aT=${userToken}&aTS=${userTokenSecret}${cursor ? `&cursor=${cursor}` : ``}`, //don't change this plz
       { headers: { "Content-Type": "application/json; charset=utf-8" } }
     )
       .then(res => res.json())
