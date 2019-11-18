@@ -812,13 +812,16 @@ button:active, .twitter-login-button:active {
 
 
 .toast {
-  background-color: var(--tan);
+  box-shadow: var(--shadow)!important;
+  background-color: var(--tan)!important;
+  border-radius: 3px!important;
+}
+
+.toast-container {
   text-align: center;
-  box-shadow: var(--shadow);
   color: var(--red);
   font-family: ibm-plex-mono, sans-serif;
   font-weight: 700;
-  border-radius: 3px;
 }
 
 

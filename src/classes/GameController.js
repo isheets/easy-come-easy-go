@@ -30,6 +30,7 @@ export default class GameController {
     }
     else {
       if (tweets === null) {
+        newGame = {};
         newGame.type = 'NoTweets';
       }
       console.error('problem in GameController.init()');
@@ -117,7 +118,8 @@ export default class GameController {
           draggable: false,
           transition: Zoom,
           hideProgressBar: true,
-          className:'toast'
+          className:'toast',
+          bodyClassName: 'toast-container'
         });
         this.updateGame(state.game.curGame);
       }
@@ -417,19 +419,15 @@ const parseRawTweets = rawTweets => {
         //check for quote tweet media
         //check for media of any type
         if (tweet.quoted_status.extended_entities) {
-          newTweet.quoteTweet.media = [{}];
+          console.log("quoteTweet has media!");
+          console.log(tweet.quoted_status);
+          newTweet.quoteTweet.media = {};
           newTweet.quoteTweet.hasMedia = true;
-          for (
-            let i = 0;
-            i < tweet.quoted_status.extended_entities.media.length;
-            i++
-          ) {
+          for (let i = 0; i < tweet.quoted_status.extended_entities.media.length; i++) {
             //remove the in-text media link from the tweet text
-            newTweet.quoteTweet.text = newTweet.quoteTweet.text.replace(
-              tweet.quoted_status.extended_entities.media[i].url,
-              ""
-            );
+            newTweet.quoteTweet.text = newTweet.quoteTweet.text.replace(tweet.quoted_status.extended_entities.media[i].url, "");
             newTweet.quoteTweet.media[i] = {};
+            newTweet.media[i].type = tweet.extended_entities.media[i].type;
             if (newTweet.quoteTweet.media[i].type === "photo") {
               newTweet.quoteTweet.media[i].url =
                 tweet.quoted_status.extended_entities.media[i].media_url_https;
