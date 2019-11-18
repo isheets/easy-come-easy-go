@@ -422,7 +422,7 @@ const parseRawTweets = rawTweets => {
         if (tweet.quoted_status.extended_entities) {
           console.log("quoteTweet has media!");
           console.log(tweet.quoted_status);
-          newTweet.quoteTweet.media = {};
+          newTweet.quoteTweet.media = [];
           newTweet.quoteTweet.hasMedia = true;
           for (let i = 0; i < tweet.quoted_status.extended_entities.media.length; i++) {
             //remove the in-text media link from the tweet text

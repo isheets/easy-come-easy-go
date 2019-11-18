@@ -42,11 +42,12 @@ const TweetMedia = props => {
   if (tweetWithMedia !== null) {
     if (tweetWithMedia.hasMedia) {
       const mediaAr = tweetWithMedia.media;
-      //console.log(mediaAr);
+      console.log(mediaAr);
       numMedia = mediaAr.length;
       //we have some media to render!
       for (let i = 0; i < mediaAr.length; i++) {
         let media = mediaAr[i];
+        console.log(media);
         mediaURLs.push(media.url);
         if (media.type === "photo" || media.type === "animated_gif") {
           imgAr.push(
@@ -72,7 +73,8 @@ const TweetMedia = props => {
           );
         }
       }
-      //console.log(mediaURLs);
+
+      console.log(imgAr);
       content = (
         <div className={"tweet-media-grid-" + numMedia}>
           {imgAr}
@@ -88,6 +90,8 @@ const TweetMedia = props => {
   else {
     content = null;
   }
+  
+  console.log(content);
 
   //return <div className={`tweet-media-${numMedia}`}>{content}</div>;
   return <Fragment>{content}</Fragment>;
