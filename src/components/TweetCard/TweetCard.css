@@ -34,7 +34,7 @@
     font-weight: 500;
     position: relative;
     box-shadow: var(--shadow);
-    /* margin: 5px; */
+    margin: 5px;
     height: min-content;
     width: 100%;
 
