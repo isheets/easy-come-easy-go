@@ -36,6 +36,7 @@
     box-shadow: var(--shadow);
     /* margin: 5px; */
     height: min-content;
+    width: 100%;
 
 }
 
