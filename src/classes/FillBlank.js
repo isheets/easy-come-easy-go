@@ -4,6 +4,7 @@ import posMap from "./../config/pos";
 import Blank from "../components/TweetCard/TweetContent/WordBlank";
 import GameController from "./GameController";
 import store from '../index';
+import shredTweet from './../utilities/ShredTweet';
 
 import badFile from './../sound/bad.mp3'
 import goodFile from './../sound/type.mp3';
@@ -207,6 +208,8 @@ export default class FillBlank {
 		if (store.getState().ui.playSound === true) {
 			failSound.play();
 		}
+		this.parent.updateGame(this);
+		await shredTweet();
 		await this.parent.animateOut();
 		this.type = 'Complete';
 		this.status = 'Fail'

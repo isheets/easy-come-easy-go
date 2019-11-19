@@ -7,6 +7,8 @@ import successFile from './../sound/success.mp3';
 import failFile from './../sound/fail.mp3';
 import { strikeIn } from '../actions';
 
+import shredTweet from './../utilities/ShredTweet';
+
 let badSound = new Audio(badFile);
 let goodSound = new Audio(goodFile);
 let successSound = new Audio(successFile);
@@ -135,11 +137,14 @@ export default class GuessAuthor {
         //proceed to next tweet
         if (store.getState().ui.playSound === true) {
 			failSound.play();
-		}
+        }
+        this.parent.updateGame(this);
+        await shredTweet();
         await this.parent.animateOut();
         this.status = 'Fail'
         this.type = 'Complete';
         this.parent.updateGame(this);
+        
     }
 
     static fromJSON(serializedJson) {
