@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "92960542c1dcf9ed2bd42ba4055f56f8",
+    "revision": "6bd6ecde5565653430cef41c58ddb6a6",
     "url": "/complete-a-tweet-2000/index.html"
   },
   {
@@ -8,15 +8,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/complete-a-tweet-2000/static/css/2.5dbdccff.chunk.css"
   },
   {
-    "revision": "9ed93e4359699abca62f",
-    "url": "/complete-a-tweet-2000/static/css/main.ab0cc968.chunk.css"
+    "revision": "84d9245df6c4ebefa0e2",
+    "url": "/complete-a-tweet-2000/static/css/main.9884b759.chunk.css"
   },
   {
     "revision": "b64f7cec1bf33d9fb76e",
     "url": "/complete-a-tweet-2000/static/js/2.80034ef0.chunk.js"
   },
   {
-    "revision": "9ed93e4359699abca62f",
+    "revision": "84d9245df6c4ebefa0e2",
     "url": "/complete-a-tweet-2000/static/js/main.1001d1d0.chunk.js"
   },
   {
