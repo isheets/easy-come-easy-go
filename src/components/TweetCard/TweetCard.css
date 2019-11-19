@@ -1,19 +1,40 @@
 .tweet {
-    height: min-content;
-    overflow-y: hidden;
     position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.holder {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    border-bottom: 5px solid var(--red);
+    overflow-y: hidden;
+}
+
+.full {
+    transform: translateY(0);
+    transition: transform .2s ease-in-out;
+}
+
+.shred-piece {
+    opacity: 1;
+    transform: translate(0, 0);
+    width: 10%;
+    transition: transform .2s ease-in-out, width .2s ease-in-out, opacity .5s ease-in-out;
 }
 
 .tweet-content-wrapper {
     background-image: url('./../../img/paper-bg_1.png');
     background-repeat: repeat;
     border-radius: 3px;
-    padding: 5px;
+    /* padding: 5px; */
     font-family: ibm-plex-mono, sans-serif;
     font-weight: 500;
     position: relative;
     box-shadow: var(--shadow);
-    margin: 5px;
+    /* margin: 5px; */
     height: min-content;
 
 }

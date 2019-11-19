@@ -164,7 +164,7 @@ export default class GameController {
     return new Promise(resolve => setTimeout(
       () => {
         resolve();
-      }, 200
+      }, 300
     ));
   }
 

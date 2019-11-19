@@ -2,7 +2,7 @@
   "name": "slow-twitter",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://isheets.github.io/easy-come-easy-go/",
+  "homepage": "https://isheets.github.io/complete-a-tweet-2000/",
   "dependencies": {
     "babel-eslint": "^10.0.3",
     "eslint-config-react-app": "^5.0.2",
@@ -13,6 +13,7 @@
     "eslint-plugin-react-hooks": "^2.1.2",
     "gh-pages": "^2.1.1",
     "he": "^1.2.0",
+    "html2canvas": "^1.0.0-rc.5",
     "lodash.throttle": "^4.1.1",
     "pos": "^0.4.2",
     "react": "^16.10.1",
