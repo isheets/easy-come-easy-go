@@ -9,13 +9,11 @@ import shredTweet from './../utilities/ShredTweet';
 import badFile from './../sound/bad.mp3'
 import goodFile from './../sound/type.mp3';
 import successFile from './../sound/success.mp3';
-import failFile from './../sound/fail.mp3';
 import { strikeIn } from "../actions";
 
 let badSound = new Audio(badFile);
 let goodSound = new Audio(goodFile);
 let successSound = new Audio(successFile);
-let failSound = new Audio(failFile);
 
 var pos = require("pos");
 var tagger = new pos.Tagger();
@@ -205,9 +203,6 @@ export default class FillBlank {
 	async fail() {
 		//display some sort of failure message
 		//proceed to next tweet
-		if (store.getState().ui.playSound === true) {
-			failSound.play();
-		}
 		this.parent.updateGame(this);
 		await shredTweet();
 		await this.parent.animateOut();

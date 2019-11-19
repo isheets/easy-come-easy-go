@@ -1,4 +1,8 @@
 import html2canvas from 'html2canvas';
+import shredFile from './../sound/shred.mp3';
+import store from './../index';
+
+let shredSound = new Audio(shredFile);
 
 const shredTweet = async () => {
 
@@ -41,6 +45,11 @@ const shredTweet = async () => {
             divToSnap.appendChild(piece);
         }
 
+        //play shred sound
+        if (store.getState().ui.playSound === true) {
+			shredSound.play();
+		}
+
         var curTop = 0;
         var curWidth = 10;
         var opacity = 1;
@@ -68,15 +77,25 @@ const shredTweet = async () => {
         }, 200);
     });
 
+    //cleanup after animation
     setTimeout(() => {
+        //remove the piece canvasses
         for(let piece of pieces) {
             divToSnap.removeChild(piece)
         }
+
+        //stop and reset the sound
+        shredSound.pause();
+        shredSound.currentTime = 0;
+
+        //reset overflowY for main flex
         document.getElementsByClassName('main-flex')[0].style.overflowY = 'hidden';
+        document.getElementsByClassName('tweet-content-wrapper')[0].style.display = "block";
+        //remove the "full" image canvas
         divToSnap.removeChild(holder)
     }, 2700)
 
-    return new Promise(resolve => setTimeout(resolve, 2900));
+    return new Promise(resolve => setTimeout(resolve, 2700));
 
 }
 

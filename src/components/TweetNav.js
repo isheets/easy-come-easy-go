@@ -31,7 +31,6 @@ let animateAndNext = async (fail) => {
             gameController.newGame()
         }, 200);
     }
-
 }
 
 let playSound = true;

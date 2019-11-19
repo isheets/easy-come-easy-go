@@ -5,7 +5,10 @@ import {
   updateToken,
   updateUser,
   logoutAndReset,
-  hideInfo
+  hideInfo,
+  optionsOut,
+  tweetIn,
+  tweetOut
 } from "./../actions";
 import { useSelector, useDispatch } from "react-redux";
 import Modal from 'react-modal';
@@ -16,6 +19,7 @@ import DragOptions from "./DragOptions";
 import Lives from './Lives';
 
 import GameController from '../classes/GameController';
+import shredTweet from './../utilities/ShredTweet';
 
 import { CSSTransition } from 'react-transition-group';
 
@@ -203,6 +207,7 @@ const App = () => {
                 <Fragment>
                   <DragOptions />
                   <Lives />
+                  <button className="small-text" onClick={() => shredAndSkip()}>SHRED</button>
                 </Fragment>
               }
             </div>
@@ -310,69 +315,20 @@ const App = () => {
   return <Fragment>{content}</Fragment>;
 };
 
-// //tweet-content-wrapper
-// var shred = () => {
+var shredAndSkip = async () => {
 
-//   var divToSnap = document.getElementsByClassName('tweet')[0];
+  if(playSound) {
+    clickSound.play();
+  }
+  //wait for the tweet to shred
+  await shredTweet();
+  dispatch(optionsOut());
+  dispatch(tweetOut());
+  setTimeout(function () {
+      gameController.newGame();
+      dispatch(tweetIn());
+  }, 200);
 
-//   html2canvas(divToSnap, {
-//     backgroundColor: null
-//   }).then(function (canvas) {
-
-//     let pieceWidth = canvas.width / 10;
-//     var pieceHeight = canvas.height;
-
-//     let pieces = [];
-//     for(let i = 0; i < 10; i++) {
-//       let piece = document.createElement("canvas");
-//       piece.classList.add('shred-piece');
-//       piece.width = pieceWidth;
-//       piece.height = pieceHeight;
-
-//       let pieceCtx = piece.getContext('2d');
-
-//       pieceCtx.drawImage(canvas, pieceWidth * (i), 0, pieceWidth, pieceHeight, 0, 0, pieceWidth, pieceHeight);
-      
-//       pieces.push(piece);
-//     }
-
-//     let holder = document.createElement("div");
-//     holder.classList.add('holder');
-//     holder.appendChild(canvas);
-
-//     canvas.classList.add('full');
-
-//     document.getElementsByClassName('main-flex')[0].style.overflowY = 'visible';
-
-//     divToSnap.innerHTML = "";
-//     divToSnap.appendChild(holder);
-
-//     for(let piece of pieces) {
-//       divToSnap.appendChild(piece);
-//     }
-
-//     var curTop = 0;
-//     var curWidth = 10;
-
-//     var animationInterval = setInterval(function(){
-//       curTop = curTop + 10;
-//       curWidth = curWidth - 0.1;
-//       console.log(curTop);
-//       for(let piece of pieces) {
-//         piece.style.transform = "translate(" + Math.random() + "px," + curTop + "%)";
-//         piece.style.width = curWidth + "%";
-//       }
-//       canvas.style.transform = "translateY(" + curTop + "%)";
-
-//       if(curTop >= 110) {
-//         clearInterval(animationInterval);
-//         console.log("animation done");
-//         for(let piece of pieces) {
-//           piece.style.opacity = 0;
-//         }
-//       }
-//     }, 300);
-//   });
-// }
+}
 
 export default App;

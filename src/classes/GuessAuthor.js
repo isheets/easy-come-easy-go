@@ -4,7 +4,6 @@ import GameController from './GameController';
 import badFile from './../sound/bad.mp3'
 import goodFile from './../sound/type.mp3';
 import successFile from './../sound/success.mp3';
-import failFile from './../sound/fail.mp3';
 import { strikeIn } from '../actions';
 
 import shredTweet from './../utilities/ShredTweet';
@@ -12,7 +11,6 @@ import shredTweet from './../utilities/ShredTweet';
 let badSound = new Audio(badFile);
 let goodSound = new Audio(goodFile);
 let successSound = new Audio(successFile);
-let failSound = new Audio(failFile);
 
 export default class GuessAuthor {
     constructor(newTweet) {
@@ -135,9 +133,6 @@ export default class GuessAuthor {
     async fail() {
         //display some sort of failure message
         //proceed to next tweet
-        if (store.getState().ui.playSound === true) {
-			failSound.play();
-        }
         this.parent.updateGame(this);
         await shredTweet();
         await this.parent.animateOut();
