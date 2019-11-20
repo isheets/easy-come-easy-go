@@ -254,6 +254,16 @@ const App = () => {
           </div>
         </div>
         <Toolbar />
+        <Modal
+          isOpen={infoState}
+          onRequestClose={() => dispatch(hideInfo())}
+          style={customStyles}
+          contentLabel="About the site"
+          overlayClassName='info-bg'
+          className="info-content"
+        >
+          <Info />
+        </Modal>
       </div>
     );
 
@@ -305,6 +315,16 @@ const App = () => {
           </CSSTransition>
         </div>
         <Toolbar />
+        <Modal
+          isOpen={infoState}
+          onRequestClose={() => dispatch(hideInfo())}
+          style={customStyles}
+          contentLabel="About the site"
+          overlayClassName='info-bg'
+          className="info-content"
+        >
+          <Info />
+        </Modal>
       </div>
 
     );

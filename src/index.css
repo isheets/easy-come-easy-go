@@ -186,7 +186,8 @@ body {
   width: 50px;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: var(--shadow);
+  -webkit-box-shadow: var(--shadow);
+          box-shadow: var(--shadow);
   margin: 5px;
 }
 
@@ -202,12 +203,18 @@ body {
 .info-content {
   background-image: url('./img/paper-bg_1.png');
   background-repeat: repeat;
-  box-shadow: var(--shadow);
+  -webkit-box-shadow: var(--shadow);
+          box-shadow: var(--shadow);
   border-radius: 3px;
   width: 50%;
   padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .info-content:focus {
@@ -224,6 +231,8 @@ body {
 }
 
 .info-link {
+  width: -webkit-min-content;
+  width: -moz-min-content;
   width: min-content;
   white-space: nowrap;
   margin-bottom: 5px;
@@ -231,7 +240,9 @@ body {
 
 .info-close-button {
   margin-top: 10px;
-  align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 
@@ -247,8 +258,11 @@ body {
   font-family: ibm-plex-mono, sans-serif;
   font-weight: 500;
   position: relative;
-  box-shadow: var(--shadow);
+  -webkit-box-shadow: var(--shadow);
+          box-shadow: var(--shadow);
   margin: 5px;
+  height: -webkit-min-content;
+  height: -moz-min-content;
   height: min-content;
   width: 66%;
   margin: 5px auto;
@@ -271,21 +285,33 @@ body {
 
 .top-bar {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   margin: auto;
   margin-bottom: 30px;
   padding: 5px;
   padding-bottom: 10px;
   margin-top: 30px;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   border-bottom: 1px solid black;
 }
 
 .user-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .user-name {
@@ -296,15 +322,23 @@ body {
   margin-right: 5px;
   width: 30px;
   border-radius: 3px;
-  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
 }
 
 
 
 .main-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: -webkit-min-content;
+  height: -moz-min-content;
   height: min-content;
   overflow-y: hidden;
   width: 90%;
@@ -326,10 +360,20 @@ body {
 }
 
 .single {
-  flex-wrap: wrap;
-  flex-direction: column-reverse;
-  align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: flex-wrap 1s, -webkit- 2009flex-wrap 1s;
+  transition: flex-wrap 1s, -webkit- 2009flex-wrap 1s;
+  -o-transition: flex-wrap 1s;
   transition: flex-wrap 1s;
+  transition: flex-wrap 1s, -webkit- 2009flex-wrap 1s, -ms-flex-wrap 1s;
 }
 
 .single > .main-grid-col-2 {
@@ -337,16 +381,24 @@ body {
 }
 
 .break {
-  flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
   height: 0;
 }
 
 .tweet-nav-wrapper {
+  width: -webkit-min-content;
+  width: -moz-min-content;
   width: min-content;
   white-space: nowrap;
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .tweet-nav-title {
@@ -354,12 +406,18 @@ body {
 }
 
 .tweet-nav-button {
+  width: -webkit-min-content;
+  width: -moz-min-content;
   width: min-content;
-  align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .no-new-tweets {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 100%;
   grid-template-columns: 100%;
   text-align: center;
   row-gap: 10px;
@@ -428,11 +486,14 @@ a:hover {
   background-repeat: repeat;
   padding: 5px;
   margin-bottom: 10px;
+  width: -webkit-min-content;
+  width: -moz-min-content;
   width: min-content;
   word-wrap: none;
   white-space: nowrap;
   border-radius: 3px;
-  box-shadow: var(--shadow);
+  -webkit-box-shadow: var(--shadow);
+          box-shadow: var(--shadow);
 }
 
 .word-drag {
@@ -440,6 +501,8 @@ a:hover {
   line-height: 150%;
   padding-top: 0;
   white-space: nowrap;
+  width: -webkit-min-content;
+  width: -moz-min-content;
   width: min-content;
   cursor: move;
   border-bottom: 1px solid rgba(191,4,4, .5);
@@ -453,18 +516,25 @@ a:hover {
   line-height: 150%;
   padding-top: 0;
   white-space: nowrap;
+  width: -webkit-min-content;
+  width: -moz-min-content;
   width: min-content;
   cursor: move;
   padding: 3px;
   margin-bottom: 10px;
   border-radius: 3px;
-  box-shadow: var(--shadow);
+  -webkit-box-shadow: var(--shadow);
+          box-shadow: var(--shadow);
 }
 
 .author-blank {
   margin-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 
 }
 
@@ -497,21 +567,33 @@ a:hover {
 
 
 .drag-options-container {
+  height: -webkit-min-content;
+  height: -moz-min-content;
   height: min-content;
   color: var(--tan);
+  display: -ms-grid;
   display: grid;
   font-family: ibm-plex-mono, sans-serif;
 }
 
 .double {
+  -ms-grid-columns: -webkit-min-content 20px -webkit-min-content;
+  -ms-grid-columns: min-content 20px min-content;
+  grid-template-columns: -webkit-min-content -webkit-min-content;
   grid-template-columns: min-content min-content;
-  column-gap: 20px;
+  -webkit-column-gap: 20px;
+     -moz-column-gap: 20px;
+          column-gap: 20px;
 }
 
 .lives-wrapper {
   margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: 10px;
 }
 
@@ -539,18 +621,23 @@ button, .twitter-login-button {
   font-weight: 400;
   font-style: normal;
   font-size: 150%;
-  box-shadow: 1px 1px 4px 1px black;
+  -webkit-box-shadow: 1px 1px 4px 1px black;
+          box-shadow: 1px 1px 4px 1px black;
   border-radius: 3px;
   cursor: pointer;
+  -webkit-transition: .1s box-shadow;
+  -o-transition: .1s box-shadow;
   transition: .1s box-shadow;
 }
 
 button:hover, .twitter-login-button:hover {
-  box-shadow: 1px 1px 6px 2px black;;
+  -webkit-box-shadow: 1px 1px 6px 2px black;
+          box-shadow: 1px 1px 6px 2px black;;
 }
 
 button:active, .twitter-login-button:active {
-  box-shadow: 0px 1px 1px 0 var(--brown);
+  -webkit-box-shadow: 0px 1px 1px 0 var(--brown);
+          box-shadow: 0px 1px 1px 0 var(--brown);
 }
 
 .small-text {
@@ -567,25 +654,41 @@ button:active, .twitter-login-button:active {
 }
 
 .fade-appear {
-  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
   opacity: 0;
   visibility: visible;
 }
 .fade-appear-active {
-  transform: translateX(0%);
+  -webkit-transform: translateX(0%);
+      -ms-transform: translateX(0%);
+          transform: translateX(0%);
   opacity: 1;
+  -webkit-transition: opacity 400ms linear, -webkit-transform 200ms ease-out;
+  transition: opacity 400ms linear, -webkit-transform 200ms ease-out;
+  -o-transition: transform 200ms ease-out, opacity 400ms linear;
   transition: transform 200ms ease-out, opacity 400ms linear;
+  transition: transform 200ms ease-out, opacity 400ms linear, -webkit-transform 200ms ease-out;
   visibility: visible;
 }
 .fade-enter {
-  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
   opacity: 0;
   visibility: visible;
 }
 .fade-enter-active {
-  transform: translateX(0%);
+  -webkit-transform: translateX(0%);
+      -ms-transform: translateX(0%);
+          transform: translateX(0%);
   opacity: 1;
+  -webkit-transition: opacity 400ms linear, -webkit-transform 200ms ease-out;
+  transition: opacity 400ms linear, -webkit-transform 200ms ease-out;
+  -o-transition: transform 200ms ease-out, opacity 400ms linear;
   transition: transform 200ms ease-out, opacity 400ms linear;
+  transition: transform 200ms ease-out, opacity 400ms linear, -webkit-transform 200ms ease-out;
   visibility: visible;
 }
 
@@ -596,6 +699,8 @@ button:active, .twitter-login-button:active {
 
 .fade-exit-active {
   opacity: 0;
+  -webkit-transition: opacity 200ms;
+  -o-transition: opacity 200ms;
   transition: opacity 200ms;
   visibility: visible;
 }
@@ -605,32 +710,56 @@ button:active, .twitter-login-button:active {
 }
 
 .scale-appear {
-  transform: scale(0);
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
   visibility: visible;
 }
 .scale-appear-active {
-  transform: scale(1);
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform 200ms ease-out;
+  transition: -webkit-transform 200ms ease-out;
+  -o-transition: transform 200ms ease-out;
   transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
   visibility: visible;
 }
 .scale-enter {
-  transform: scale(0);
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
   visibility: visible;
 }
 .scale-enter-active {
-  transform: scale(1);
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform 200ms ease-out;
+  transition: -webkit-transform 200ms ease-out;
+  -o-transition: transform 200ms ease-out;
   transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
   visibility: visible;
 }
 
 .scale-exit {
-  transform: scale(1);
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
   visibility: visible;
 }
 
 .scale-exit-active {
-  transform: scale(0);
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: -webkit-transform 200ms ease-out;
+  transition: -webkit-transform 200ms ease-out;
+  -o-transition: transform 200ms ease-out;
   transition: transform 200ms ease-out;
+  transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
   visibility: visible;
 }
 
@@ -647,29 +776,49 @@ button:active, .twitter-login-button:active {
 }
 
 .slide-up-appear {
-  transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
   opacity: .5;
   position: relative;
-  box-shadow: var(--shadow);
+  -webkit-box-shadow: var(--shadow);
+          box-shadow: var(--shadow);
 }
 .slide-up-appear-active {
   opacity: 1;
-  transform: translateY(0%);
+  -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+          transform: translateY(0%);
+  -webkit-transition: opacity 500ms linear, -webkit-transform 1000ms cubic-bezier(.72,.19,.68,.95);
+  transition: opacity 500ms linear, -webkit-transform 1000ms cubic-bezier(.72,.19,.68,.95);
+  -o-transition: transform 1000ms cubic-bezier(.72,.19,.68,.95), opacity 500ms linear;
   transition: transform 1000ms cubic-bezier(.72,.19,.68,.95), opacity 500ms linear;
-  box-shadow: var(--shadow);
+  transition: transform 1000ms cubic-bezier(.72,.19,.68,.95), opacity 500ms linear, -webkit-transform 1000ms cubic-bezier(.72,.19,.68,.95);
+  -webkit-box-shadow: var(--shadow);
+          box-shadow: var(--shadow);
 }
 .slide-up-enter {
-  transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
   opacity: .5;
   position: relative;
-  box-shadow: var(--shadow);
+  -webkit-box-shadow: var(--shadow);
+          box-shadow: var(--shadow);
 }
 
 .slide-up-enter-active {
   opacity: 1;
-  transform: translateY(0%);
+  -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+          transform: translateY(0%);
+  -webkit-transition: opacity 500ms linear, -webkit-transform 1000ms cubic-bezier(.72,.19,.68,.95);
+  transition: opacity 500ms linear, -webkit-transform 1000ms cubic-bezier(.72,.19,.68,.95);
+  -o-transition: transform 1000ms cubic-bezier(.72,.19,.68,.95), opacity 500ms linear;
   transition: transform 1000ms cubic-bezier(.72,.19,.68,.95), opacity 500ms linear;
-  box-shadow: var(--shadow);
+  transition: transform 1000ms cubic-bezier(.72,.19,.68,.95), opacity 500ms linear, -webkit-transform 1000ms cubic-bezier(.72,.19,.68,.95);
+  -webkit-box-shadow: var(--shadow);
+          box-shadow: var(--shadow);
 }
 
 .slide-up-exit {
@@ -678,6 +827,8 @@ button:active, .twitter-login-button:active {
 
 .slide-up-exit-active {
   opacity: 0;
+  -webkit-transition: opacity 200ms;
+  -o-transition: opacity 200ms;
   transition: opacity 200ms; 
 }
 
@@ -687,41 +838,69 @@ button:active, .twitter-login-button:active {
 
 /* special animations for intial page load (first time user) */
 .fade-slow-appear {
-  transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
   opacity: .5;
   visibility: visible;
 }
 .fade-slow-appear-active {
-  transform: translateY(0%);
+  -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+          transform: translateY(0%);
   opacity: 1;
+  -webkit-transition: opacity 1000ms linear, -webkit-transform 1000ms ease-in-out;
+  transition: opacity 1000ms linear, -webkit-transform 1000ms ease-in-out;
+  -o-transition: transform 1000ms ease-in-out, opacity 1000ms linear;
   transition: transform 1000ms ease-in-out, opacity 1000ms linear;
+  transition: transform 1000ms ease-in-out, opacity 1000ms linear, -webkit-transform 1000ms ease-in-out;
   visibility: visible;
 }
 
 .slide-up-slow-appear {
-  transform: translateY(120%);
+  -webkit-transform: translateY(120%);
+      -ms-transform: translateY(120%);
+          transform: translateY(120%);
   opacity: .5;
   position: relative;
-  box-shadow: var(--shadow);
+  -webkit-box-shadow: var(--shadow);
+          box-shadow: var(--shadow);
 }
 .slide-up-slow-appear-active {
   opacity: 1;
-  transform: translateY(0%);
+  -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+          transform: translateY(0%);
+  -webkit-transition: opacity 1000ms linear, -webkit-transform 2000ms cubic-bezier(.72,.19,.68,.95);
+  transition: opacity 1000ms linear, -webkit-transform 2000ms cubic-bezier(.72,.19,.68,.95);
+  -o-transition: transform 2000ms cubic-bezier(.72,.19,.68,.95), opacity 1000ms linear;
   transition: transform 2000ms cubic-bezier(.72,.19,.68,.95), opacity 1000ms linear;
-  box-shadow: var(--shadow);
+  transition: transform 2000ms cubic-bezier(.72,.19,.68,.95), opacity 1000ms linear, -webkit-transform 2000ms cubic-bezier(.72,.19,.68,.95);
+  -webkit-box-shadow: var(--shadow);
+          box-shadow: var(--shadow);
 }
 .slide-up-slow-enter {
-  transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
   opacity: .5;
   position: relative;
-  box-shadow: var(--shadow);
+  -webkit-box-shadow: var(--shadow);
+          box-shadow: var(--shadow);
 }
 
 .slide-up-slow-enter-active {
   opacity: 1;
-  transform: translateY(0%);
+  -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+          transform: translateY(0%);
+  -webkit-transition: opacity 1000ms linear, -webkit-transform 2000ms cubic-bezier(.72,.19,.68,.95);
+  transition: opacity 1000ms linear, -webkit-transform 2000ms cubic-bezier(.72,.19,.68,.95);
+  -o-transition: transform 2000ms cubic-bezier(.72,.19,.68,.95), opacity 1000ms linear;
   transition: transform 2000ms cubic-bezier(.72,.19,.68,.95), opacity 1000ms linear;
-  box-shadow: var(--shadow);
+  transition: transform 2000ms cubic-bezier(.72,.19,.68,.95), opacity 1000ms linear, -webkit-transform 2000ms cubic-bezier(.72,.19,.68,.95);
+  -webkit-box-shadow: var(--shadow);
+          box-shadow: var(--shadow);
 }
 
 .slide-up-slow-exit {
@@ -730,6 +909,8 @@ button:active, .twitter-login-button:active {
 
 .slide-up-slow-exit-active {
   opacity: 0;
+  -webkit-transition: opacity 200ms;
+  -o-transition: opacity 200ms;
   transition: opacity 200ms; 
 }
 
@@ -739,25 +920,49 @@ button:active, .twitter-login-button:active {
 
 /* strike bounce animation */
 .strike-enter, .strike-appear {
-  transform: scale(1);
-  transform-origin: center;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center;
 
 }
 .strike-enter-active, .strike-appear-active {
-  transform: scale(1.3);
+  -webkit-transform: scale(1.3);
+      -ms-transform: scale(1.3);
+          transform: scale(1.3);
+  -webkit-transition: -webkit-transform 300ms ease-in-out;
+  transition: -webkit-transform 300ms ease-in-out;
+  -o-transition: transform 300ms ease-in-out;
   transition: transform 300ms ease-in-out;
-  transform-origin: center;
+  transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center;
 }
 
 .scale-exit {
-  transform: scale(1.3);
-  transform-origin: center;
+  -webkit-transform: scale(1.3);
+      -ms-transform: scale(1.3);
+          transform: scale(1.3);
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center;
 }
 
 .scale-exit-active {
-  transform: scale(1);
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform 400ms ease-in-out;
+  transition: -webkit-transform 400ms ease-in-out;
+  -o-transition: transform 400ms ease-in-out;
   transition: transform 400ms ease-in-out;
-  transform-origin: center;
+  transition: transform 400ms ease-in-out, -webkit-transform 400ms ease-in-out;
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center;
 }
 
 /* css loading animation */
@@ -767,14 +972,16 @@ button:active, .twitter-login-button:active {
 	border:2px solid rgb(0,0,0);
 	overflow:hidden;
   background-color:rgba(0,0,0,0);
-  box-shadow: var(--shadow);
+  -webkit-box-shadow: var(--shadow);
+          box-shadow: var(--shadow);
   border-radius: 3px;
 	margin:auto;
 }
 
 .noTrespassingBarLineG{
   background-color: rgba(0,0,0,1);
-  box-shadow: var(--shadow);
+  -webkit-box-shadow: var(--shadow);
+          box-shadow: var(--shadow);
 	float:left;
 	width:23px;
 	height:195px;
@@ -813,7 +1020,8 @@ button:active, .twitter-login-button:active {
 
 
 .toast {
-  box-shadow: var(--shadow)!important;
+  -webkit-box-shadow: var(--shadow)!important;
+          box-shadow: var(--shadow)!important;
   background-color: var(--tan)!important;
   border-radius: 3px!important;
 }
@@ -836,37 +1044,7 @@ button:active, .twitter-login-button:active {
 	}
 }
 
-@-o-keyframes noTrespassingAnimationG{
-	0%{
-		margin-left:0px;
-	}
-
-	100%{
-		margin-left:-62px;
-	}
-}
-
-@-ms-keyframes noTrespassingAnimationG{
-	0%{
-		margin-left:0px;
-	}
-
-	100%{
-		margin-left:-62px;
-	}
-}
-
 @-webkit-keyframes noTrespassingAnimationG{
-	0%{
-		margin-left:0px;
-	}
-
-	100%{
-		margin-left:-62px;
-	}
-}
-
-@-moz-keyframes noTrespassingAnimationG{
 	0%{
 		margin-left:0px;
 	}
@@ -884,8 +1062,13 @@ button:active, .twitter-login-button:active {
 
 @media all and (max-width: 1100px)  {
   .double {
+    -ms-grid-columns: -webkit-min-content;
+    -ms-grid-columns: min-content;
+    grid-template-columns: -webkit-min-content;
     grid-template-columns: min-content;
-    column-gap: 20px;
+    -webkit-column-gap: 20px;
+       -moz-column-gap: 20px;
+            column-gap: 20px;
   }
 
   .tweet {
