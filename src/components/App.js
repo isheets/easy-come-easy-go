@@ -307,7 +307,7 @@ const App = () => {
           >
             <div className="welcome-message-wrapper">
               <div className="welcome-message">
-                <h2 className='section-title'>Welcome to Slow Twitter.</h2>
+                <h2 className='section-title'>Welcome to Complete-a-Tweet 2000.</h2>
                 <p>This site will transform your Twitter feed into a series of mini-games.</p>
                 <p>Login to your Twitter account get started.</p>
               </div>
