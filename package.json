@@ -2,7 +2,7 @@
   "name": "slow-twitter",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://isheets.github.io/complete-a-tweet-2000/",
+  "homepage": "https://isheets.github.io/portfolio/complete-a-tweet-2000/",
   "dependencies": {
     "babel-eslint": "^10.0.3",
     "eslint-config-react-app": "^5.0.2",
