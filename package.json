@@ -11,7 +11,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.1.2",
-    "gh-pages": "^2.1.1",
+    "gh-pages": "^5.0.0",
     "he": "^1.2.0",
     "html2canvas": "^1.0.0-rc.5",
     "lodash.throttle": "^4.1.1",
